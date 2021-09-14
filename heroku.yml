@@ -1,5 +1,16 @@
+# build:
+#   docker:
+#     worker: Dockerfile 
+# run:
+#   worker: yarn start
 build:
   docker:
-    worker: Dockerfile 
+    release:
+       dockerfile: Dockerfile
+       target: builder
+    worker: Dockerfile
 run:
-  worker: yarn start
+  worker:
+    command:
+      - yarn start
+    image: worker
